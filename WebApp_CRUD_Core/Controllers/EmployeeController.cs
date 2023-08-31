@@ -37,10 +37,10 @@ namespace WebApp_CRUD_Core.Controllers
 
         [HttpPost]
         [Route("AddEmployee")]
-        public async Task<IActionResult> Post(Employee emp)
+        public ActionResult Post(Employee emp)
         {
 
-            var result = await _employee.InsertEmployee(emp);
+            var result = _employee.InsertEmployee(emp);
             if (result == null)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Something Went Wrong");
